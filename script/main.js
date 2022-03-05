@@ -1,18 +1,25 @@
 (() => {
 	// make connections to the elements on the page
 	// that we want the user to interact
-	const theButtons = document.querySelectorAll("#buttonHolder img"),
+	let theButtons = document.querySelectorAll("#buttonHolder img"),
 	      puzzlePieces = document.querySelectorAll(".puzzle-pieces *"),
 		  dropZones = document.querySelectorAll(".drop-zone"),
 	      theGameBoard = document.querySelector(".puzzle-board");
 
-	function changeBgImg(){
+	const piecePath = ["topLeft", "topRight", "bottomleft", "bottomRight"];
+
+	function changeImageset(){
 		//debugger;
 		let key = this.dataset.bgref;
 		// console.log(key);
 
 		theGameBoard.style.backgroundImage = `url(images/backGround${key}.jpg)`;
+
+		piecePath.forEach((piece, index) => {
+          puzzlePieces[index].src = `images/${piece + this.dataset.bgref}.jpg`;
+		})
 	}
+
 
 	function startDrag(event){
 		// console.log("started dragging");
@@ -35,7 +42,7 @@
 
 
 
-    theButtons.forEach(button => button.addEventListener("click", changeBgImg));
+    theButtons.forEach(button => button.addEventListener("click", changeImageset));
 
 	puzzlePieces.forEach(piece => piece.addEventListener("dragstart", startDrag));
 
