@@ -5,6 +5,19 @@ Use the in-class build files (the Puzzle Drag and Drop) and fix the bugs that we
 
 Nguyen Gia Linh
 
+## Problems
+1. Any puzzle piece and more than one piece can be dropped in any dropzone even when is wrong
+2. The puzzle pieces stay in the dropzones after finishing, even choosing new puzzles won't reset the pieces
+
+## Solutions 
+1. Function created to allow one piece to one dropzone.
+
+Dropzones and puzzle pieces matched id via data sets. --> Function created to allow one piece to one dropzone --> Return statement created to prevent wrong puzzle pieces to be dropped to the dropzone
+
+2. Puzzle sets didn't reset when a new puzzle is selected.(still working on making it happen)
+
+resetPuzzle function created with paren-child properties then remove the Dropped Child once theBoardgame is changed.
+
 ## Prerequisites
 
 A code editer program to write code for Javascripts, HTML5, CSS (for example, Sublime Text, Visual Studio Code).

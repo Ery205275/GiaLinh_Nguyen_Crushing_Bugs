@@ -17,6 +17,17 @@
 
 		piecePath.forEach((piece, index) => {
           puzzlePieces[index].src = `images/${piece + this.dataset.bgref}.jpg`;
+		});
+		resetPuzzle();
+	}
+	/// working on reset
+	function resetPuzzle() {
+		dropZones.forEach(zone => {
+			if (zone.children) {
+				puzzlePieces.appendChild(zone.firstElementChild);
+				puzzlePieces.setData.remove('draggedElement')
+			}
+			;
 		})
 	}
 
@@ -49,6 +60,10 @@
 		this.appendChild(document.querySelector(`#${currentEl}`));
 	}
 
+	
+
+
+
 
 
     theButtons.forEach(button => button.addEventListener("click", changeImageset));
@@ -58,6 +73,7 @@
 	dropZones.forEach(zone => {
 		zone.addEventListener("dragover", dragged0ver);
 		zone.addEventListener("drop", dropOn);
+		
 	});
 
 
