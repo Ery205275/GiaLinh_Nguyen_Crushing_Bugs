@@ -34,6 +34,15 @@
 	function dropOn(event) {
 		event.preventDefault();
 		// console.log("drop it here");
+		//no more than 1 piece can be in the same drop zone
+        // the 'return' statement kills othe code; nothing will execute past 'return'
+		if (this.children.length > 0) { return; }
+
+		let zoneID = event.dataTransfer.getData("dragPiece");
+        // if the id of the puzzle piece doesn't match the data set of the drop zone, it won't allow the pice to be dropped there;
+		// the 'return' statement kills othe code; nothing will execute past 'return' if statement doesn't meet
+        if (this.dataset.ref !== zoneID) { alert("Wrong spot!"); return; }
+
 		let currentEl = event.dataTransfer.getData("draggedElement");
 
 		console.log(`dropped the element:`, currentEl);
