@@ -38,10 +38,10 @@
         // the 'return' statement kills othe code; nothing will execute past 'return'
 		if (this.children.length > 0) { return; }
 
-		let zoneID = event.dataTransfer.getData("dragPiece");
+		let zoneID = event.dataTransfer.getData("draggedElement");
         // if the id of the puzzle piece doesn't match the data set of the drop zone, it won't allow the pice to be dropped there;
 		// the 'return' statement kills othe code; nothing will execute past 'return' if statement doesn't meet
-        if (this.dataset.ref !== zoneID) { alert("Wrong spot!"); return; }
+        if (event.target.id !== zoneID) { alert("Wrong spot!"); return }
 
 		let currentEl = event.dataTransfer.getData("draggedElement");
 
